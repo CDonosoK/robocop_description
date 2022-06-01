@@ -5,11 +5,11 @@ Made by Clemente Donoso, 📍 Chile 🇨🇱
 
 | RoboCop  | Lateral |
 | ------------- | ------------- |
-|![alt text](https://github.com/CDonosoK/AutonomousRobot/blob/main/images/RoboCop.png) |	![alt text](https://github.com/CDonosoK/AutonomousRobot/blob/main/images/RoboCop%20Lateral.png)|
+|![alt text]() |	![alt text]()|
 
 | Front |	Back|
 | ------------- | ------------- |
-|![alt text](https://github.com/CDonosoK/AutonomousRobot/blob/main/images/RoboCop%20Front.png)| ![alt text](https://github.com/CDonosoK/AutonomousRobot/blob/main/images/RoboCop%20Back.png)
+|![alt text]()| ![alt text]()
 
 ## About the project: ✏️
 My title work seeks the construction and creation of a small autonomous mobile robot, capable of navigating, mapping and locating in controlled environments.
@@ -20,7 +20,7 @@ As progress is made, new features will be added. First, nodes will be made that 
 I will upload the code and the documentation in the next update and in the next iteration. Fell free to contact me if you have any questions.
 
 ## Last Update: 📅
-- 2022 - June - 01: Restructuring the code and the documentation, and upload new codes
+- 2022 - June - 01: First commit, with the basic structure of the project.
 - 
 -
 
@@ -84,11 +84,11 @@ I will upload the code and the documentation in the next update and in the next 
 
 ## Shopping list: 🛒
 When using ROS, Gazebo and Rviz for the simulations it will not be necessary to have the robot physically, however, the shopping list of the components that are used will be left here.
-- [Raspberry](https://es.aliexpress.com/item/4000054878108.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
+- [Raspberry Pi 4-8GB](https://es.aliexpress.com/item/4000054878108.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
 - [11.1V 5200 mAh Battery](https://es.aliexpress.com/item/4000473771386.html?spm=a2g0s.9042311.0.0.274263c0vpR9Ad)
 - [XL4016](https://es.aliexpress.com/item/1005002823834416.html?spm=a2g0s.9042311.0.0.274263c0jXHXAX)
-- [Small LIDAR](https://es.aliexpress.com/item/4000251359842.html?spm=a2g0s.9042311.0.0.274263c0L7Hq96)
-- [Depth camera - Orbbec Pro](https://es.aliexpress.com/item/1005002763661050.html?spm=a2g0s.9042311.0.0.41c263c0t63anU)
+- [Lidar](https://es.aliexpress.com/item/4000251359842.html?spm=a2g0s.9042311.0.0.274263c0L7Hq96)
+- [Depth camera](https://es.aliexpress.com/item/1005002763661050.html?spm=a2g0s.9042311.0.0.41c263c0t63anU)
 - [Metal Chasis](https://www.amazon.com/dp/B09131Z41C?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 - [Screen](https://es.aliexpress.com/item/32894346094.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
 - [Raspberry Pico](https://es.aliexpress.com/item/1005004271337949.html?spm=a2g0o.productlist.0.0.19df7250awZbxG&algo_pvid=82875a74-614a-490e-8fbf-19c74911b32d&algo_exp_id=82875a74-614a-490e-8fbf-19c74911b32d-5&pdp_ext_f=%7B%22sku_id%22%3A%2212000028584736395%22%7D&pdp_npi=2%40dis%21CLP%21%212421.0%21%21%211478.0%21%21%402100bddd16540745059073292e3a20%2112000028584736395%21sea)
