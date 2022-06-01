@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+
+<launch>
+<arg name="extra_gazebo_args" default="--verbose"/>
+<arg name="world_file" default="$(find robocop_description)/worlds/post_office.world"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find robocop_description)/urdf/robocop.xacro"/>
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robocop"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    
+    <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
+  </include>
+
+
+</launch>
