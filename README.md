@@ -26,21 +26,26 @@ I will upload the code and the documentation in the next update and in the next 
 
 ## How to setup your workspace: 📋
 - First you need to install ROS. For this project we will use [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu), if you are using windows, you can use WSL.
-- Then you need to install the packages that we will use:
+- **Then you need to install the packages that we will use:**
     -
-- Once you have installed ROS and your packages, create your catkin workspace:
+- **Once you have installed ROS and your packages, create your catkin workspace (with the name that you want):**
     ```
         mkdir -p ~/catkin_ws/src
         cd ~/catkin_ws
         catkin build
     ```
-- Then copy the repository to your catkin workspace:
+- **Then copy the repository to your catkin workspace:**
     ```
         cd ~/catkin_ws/src
         git clone https://github.com/CDonosoK/robocop_description
     ```
 
-If everything went well, your workspace should be structure like this:
+- **Finally, you need to source your catkin workspace:**
+    ```
+        source ~/catkin_ws/devel/setup.bash
+    ```
+
+**If everything went well, your workspace should be structure like this:**
 ```
     ~/catkin_ws
         |- build
@@ -52,10 +57,30 @@ If everything went well, your workspace should be structure like this:
                 |- gazebo
                 |- images
                 |- ...
+            |- ...
         
         |- ...
 
 ```
+
+## How it's estructured: 📚
+### Codes:
+- The codes are in the folder `codes`, in this folder you can find the codes that are represented as nodes for controlling the robot, controlling the camera and tracking lines and other things.
+
+### Gazebo:
+- The gazebo main files such the materials, the physics and the plugins are in the folder `gazebo`, in this folder you can find evrything that is related to the gazebo.
+
+### Launch
+- The launch files are in the folder `launch`, in this folder you can find the launch files that are used to start the robot and the camera, and everything that is related to the gazebo.¿ and rviz.
+
+### Worlds
+- The worlds are in the folder `worlds`, in this folder you can find the worlds that will create the environment for the robot.
+
+### Maps
+- The maps are in the folder `maps`, in this folder you can find the maps that the robot create from the world and navigate with them.
+
+### URDF
+- The URDF files are in the folder `urdf`, in this folder you can find the URDF files that are used to create the robot.
 
 ## Shopping list: 🛒
 When using ROS, Gazebo and Rviz for the simulations it will not be necessary to have the robot physically, however, the shopping list of the components that are used will be left here.
@@ -68,5 +93,5 @@ When using ROS, Gazebo and Rviz for the simulations it will not be necessary to 
 - [Screen](https://es.aliexpress.com/item/32894346094.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
 - [Raspberry Pico](https://es.aliexpress.com/item/1005004271337949.html?spm=a2g0o.productlist.0.0.19df7250awZbxG&algo_pvid=82875a74-614a-490e-8fbf-19c74911b32d&algo_exp_id=82875a74-614a-490e-8fbf-19c74911b32d-5&pdp_ext_f=%7B%22sku_id%22%3A%2212000028584736395%22%7D&pdp_npi=2%40dis%21CLP%21%212421.0%21%21%211478.0%21%21%402100bddd16540745059073292e3a20%2112000028584736395%21sea)
 
-## Contact:
+## Contribute:
 If you want to contribute monetarily to the creation of the project, you can do so via PayPal: https://paypal.me/cdonosok
