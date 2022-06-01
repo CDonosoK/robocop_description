@@ -73,6 +73,26 @@
   </collision>
 </link>
 
+<link name="camera_auxiliar">
+  <inertial>
+      <inertia
+        ixx="0.166667" ixy="0" ixz="0"
+        iyx="0" iyy="0.166667" iyz="0"
+        izx="0" izy="0" izz="0.166667"
+        />
+    </inertial>
+    <visual name='visual'>
+      <geometry>
+        <box size="0.1 0.2 0.1" />
+      </geometry>
+    </visual>
+    <collision name='collision'>
+      <geometry>
+        <box size="0.1 0.2 0.1" />
+      </geometry>
+    </collision>
+</link>
+
 <link name="soporteElectronica_v7_1">
   <inertial>
     <origin xyz="0.07505366903855869 0.05500321236476466 0.04613542479954183" rpy="0 0 0"/>
@@ -552,6 +572,12 @@
   <parent link="baseRuedas_v3_1"/>
   <child link="rueda_v2_1"/>
   <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="robot_camera" type="fixed">
+  <origin xyz="0.0 -0.8 0.2" rpy="0 0 1.570795"/>
+  <parent link="depthCamera_v1_1"/>
+  <child link="camera_auxiliar"/>
 </joint>
 
 </robot>

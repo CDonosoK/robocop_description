@@ -87,7 +87,7 @@
   </gazebo>
 
   <!-- Camera plugin -->
-  <gazebo reference="depthCamera_v1_1">
+  <gazebo reference="camera_auxiliar">
     <sensor type="camera" name="camera1">
       <update_rate>100.0</update_rate>
       <camera name="head">
@@ -105,7 +105,7 @@
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <cameraName>rrbot/camera1</cameraName>
+        <cameraName>robocop_view</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>depthCamera_v1_1</frameName>

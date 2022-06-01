@@ -7,8 +7,8 @@ from geometry_msgs.msg import Twist
 key_mapping = {
     'w': [0, 1],
     's': [0, -1],
-    'a': [-1, 0],
-    'd': [1, 0],
+    'a': [1, 0],
+    'd': [-1, 0],
     ' ': [0, 0]
 }
 
@@ -65,8 +65,8 @@ if __name__ == '__main__':
     g_target_twist = Twist()
     g_last_twist = Twist()
 
-    g_vel_scales[0] = fetch_param('~angular_scale', 0.1)
-    g_vel_scales[1] = fetch_param('~linear_scale', 0.1)
+    g_vel_scales[0] = fetch_param('~angular_scale', 1.0)
+    g_vel_scales[1] = fetch_param('~linear_scale', 1.0)
     g_vel_ramps[0] = fetch_param('~angular_accel', 1.0)
     g_vel_ramps[1] = fetch_param('~linear_accel', 1.0)
 
