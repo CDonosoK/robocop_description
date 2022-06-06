@@ -11,6 +11,5 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
   
   <!-- Navigation Stack -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/maps/garage/garage.yaml"/>
-
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/maps/simple_environment/map.yaml"/> 
 </launch>
