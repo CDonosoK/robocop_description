@@ -1,0 +1,26 @@
+digraph G {
+"base_link" -> "soporteCamara_v2_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"soporteCamara_v2_1" -> "depthCamera_v1_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "soporteElectronica_v7_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"soporteElectronica_v7_1" -> "LIDAR_v1_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "basePrincipal_v4_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"basePrincipal_v4_1" -> "baseRuedas_v3__1__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"basePrincipal_v4_1" -> "baseRuedas_v3_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"base_link" -> "soportePantalla_v11_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"soportePantalla_v11_1" -> "pantallaTouch_v1_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"depthCamera_v1_1" -> "camera_auxiliar"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10000.000 Hz\nMost recent transform: 0.000 ( 1654461011.478 sec old)\nBuffer length: 0.000 sec\n"];
+"baseRuedas_v3_1" -> "rueda_v2_1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3_1" -> "rueda_v2__1__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3_1" -> "rueda_v2__2__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3_1" -> "rueda_v2__3__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3_1" -> "rueda_v2__4__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3__1__1" -> "rueda_v2__9__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3__1__1" -> "rueda_v2__8__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3__1__1" -> "rueda_v2__7__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3__1__1" -> "rueda_v2__6__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+"baseRuedas_v3__1__1" -> "rueda_v2__5__1"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.204 Hz\nMost recent transform: 1654461011.378 ( 0.100 sec old)\nBuffer length: 4.900 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1654461011.478"[ shape=plaintext ] ;
+ }->"base_link";
+}
