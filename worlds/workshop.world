@@ -72,7 +72,7 @@
 	  <uri>model://Wall_Cabinet_Coin_24x30W</uri>
   </include>
 
-    <!-- Artifcats-->
+    <!-- Artifcats
 
      <include>
   <pose>0.798794 -0.269038 0.332 -0.000002 0.00 -0.382842 </pose>
@@ -147,5 +147,6 @@
   <pose>1.325672 1.164408 0.396676 0.012398 -0.011495 0.000071</pose>
   <uri>model://washer</uri>
      </include>
+     -->
   </world>
 </sdf>
