@@ -16,6 +16,7 @@
     
     <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
   </include>
+  <include file="$(find amcl)/examples/amcl_diff.launch"/>
 
 
 </launch>
