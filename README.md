@@ -12,7 +12,7 @@ Made by Clemente Donoso, 📍 Chile 🇨🇱
 |![alt text](https://github.com/CDonosoK/robocop_description/blob/main/Images/robocop_front.png)| ![alt text](https://github.com/CDonosoK/robocop_description/blob/main/Images/robocop_back.png)
 
 ## About the project: ✏️
-My title work seeks the construction and creation of a small autonomous mobile robot, capable of navigating, mapping and locating in controlled environments.
+This work seeks the construction and creation of a small autonomous mobile robot, capable of navigating, mapping and locating in controlled environments.
 It will use sensors such as lidars and depth cameras to locate itself in the environment. 
 
 As progress is made, new features will be added. First, nodes will be made that allow teleoperation, then nodes will be added to control the camera and track lines, then the lidar will be integrated and the limits of the environment will be identified to finish with autonomous navigation by the robot.
