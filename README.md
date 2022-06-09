@@ -20,9 +20,9 @@ As progress is made, new features will be added. First, nodes will be made that 
 I will upload the code and the documentation in the next update and in the next iteration. Fell free to contact me if you have any questions.
 
 ## Last Update: 📅
+- 2022 - June - 09: The navigation stack it's setup but it has problem for the localization of the robot.
 - 2022 - June - 01: First commit, with the basic structure of the project.
-- 
--
+- **...**
 
 ## How to setup your workspace: 📋
 - First you need to install ROS. For this project we will use [ROS Noetic](http://wiki.ros.org/noetic/Installation/Ubuntu), if you are using windows, you can use WSL.
@@ -78,13 +78,13 @@ If you want to try the simulation, you can run the following command:
 - The gazebo main files such the materials, the physics and the plugins are in the folder `gazebo`, in this folder you can find evrything that is related to the gazebo.
 
 ### Launch
-- The launch files are in the folder `launch`, in this folder you can find the launch files that are used to start the robot and the camera, and everything that is related to the gazebo.¿ and rviz.
+- The launch files are in the folder `launch`, in this folder you can find the launch files that are used to start the robot and the camera and everything that is related to the gazebo and rviz.
 
 ### Worlds
-- The worlds are in the folder `worlds`, in this folder you can find the worlds that will create the environment for the robot.
+- The worlds are in the folder `worlds`, in this folder you can find the worlds that will create the environment for the robot, if you create your own world, save it in this folder.
 
 ### Maps
-- The maps are in the folder `maps`, in this folder you can find the maps that the robot create from the world and navigate with them.
+- The maps are in the folder `maps`, in this folder you can find the maps that the robot create from the world and navigate with them, if you create your own map, save it in a specific folder inside this one.
 
 ### URDF
 - The URDF files are in the folder `urdf`, in this folder you can find the URDF files that are used to create the robot.
