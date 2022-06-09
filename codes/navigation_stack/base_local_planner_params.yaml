@@ -1,0 +1,3 @@
+TrajectoryPlannerROS:
+  # Our robot it's a differential drive
+  holonomic_robot: false
