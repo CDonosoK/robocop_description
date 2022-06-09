@@ -63,6 +63,13 @@ I will upload the code and the documentation in the next update and in the next 
 
 ```
 
+## The Simulation: 🚀
+I'm using the [gazebo](https://gazebosim.org/) simulator to test the robot and [rviz](https://rviz.org/) to visualize the results.
+If you want to try the simulation, you can run the following command:
+- For visualize on gazebo: ``` roslaunch robocop_description gazebo.launch ```
+- For visualize on rviz: ``` roslaunch robocop_description display.launch ```
+- To control the robot: ``` roslaunch robocop_description controller.launch ```
+
 ## How it's estructured: 📚
 ### Codes:
 - The codes are in the folder `codes`, in this folder you can find the codes that are represented as nodes for controlling the robot, controlling the camera and tracking lines and other things.
