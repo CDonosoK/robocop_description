@@ -19,7 +19,7 @@
   
   <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
 </include>
-<include file="$(find amcl)/examples/amcl_diff.launch"/>
+<include file="$(find robocop_description)/navigation_stack/amcl_robocop.launch"/>
 
 <!-- Configuration of the navigation stack -->
 <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
