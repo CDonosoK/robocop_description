@@ -20,8 +20,7 @@ As progress is made, new features will be added. First, nodes will be made that 
 I will upload the code and the documentation in the next update and in the next iteration. Fell free to contact me if you have any questions.
 
 ## Last Update: 📅
-- 2022 - June - 09: The navigation stack it's setup but it has problem for the localization of the robot.
-- 2022 - June - 01: First commit, with the basic structure of the project.
+- 2022 - August - 14: First commit, with the basic structure of the project.
 - **...**
 
 ## How to setup your workspace: 📋
@@ -94,7 +93,7 @@ When using ROS, Gazebo and Rviz for the simulations it will not be necessary to 
 - [Raspberry Pi 4-8GB](https://es.aliexpress.com/item/4000054878108.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
 - [11.1V 5200 mAh Battery](https://es.aliexpress.com/item/4000473771386.html?spm=a2g0s.9042311.0.0.274263c0vpR9Ad)
 - [XL4016](https://es.aliexpress.com/item/1005002823834416.html?spm=a2g0s.9042311.0.0.274263c0jXHXAX)
-- [Lidar](https://es.aliexpress.com/item/4000251359842.html?spm=a2g0s.9042311.0.0.274263c0L7Hq96)
+- [Lidar](https://es.aliexpress.com/item/1005004295339153.html?spm=a2g0o.order_list.0.0.2344194dldRZJ5&gatewayAdapt=glo2esp)
 - [Depth camera](https://es.aliexpress.com/item/1005002763661050.html?spm=a2g0s.9042311.0.0.41c263c0t63anU)
 - [Metal Chasis](https://www.amazon.com/dp/B09131Z41C?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 - [Screen](https://es.aliexpress.com/item/32894346094.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
