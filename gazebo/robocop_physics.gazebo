@@ -1,0 +1,129 @@
+<?xml version="1.0" ?>
+<robot name="robocop" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="standarFriction" value="1.0" />
+<xacro:property name="casterFriction" value="0.0" />
+<xacro:property name="wheelFriction" value="1.0" />
+
+<gazebo reference="base_link">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="soporteCamara_v2_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="depthCamera_v1_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="soporteElectronica_v7_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="LIDAR_v1_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="basePrincipal_v4_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="baseRuedas_v3__1__1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="baseRuedas_v3_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="soportePantalla_v11_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="pantallaTouch_v1_1">
+  <mu1>${standarFriction}</mu1>
+  <mu2>${standarFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__9__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__8__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__7__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__6__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__5__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__4__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__3__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__2__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2__1__1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="rueda_v2_1">
+  <mu1>${wheelFriction}</mu1>
+  <mu2>${wheelFriction}</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>

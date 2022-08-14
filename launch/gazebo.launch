@@ -1,0 +1,20 @@
+<launch>
+<arg name="extra_gazebo_args" default="--verbose"/>
+
+<!-- Setup of the world file -->
+<arg name="world_file" default="$(find robocop_description)/worlds/simple_environment/simple_environment.world"/>
+
+<!-- Configuration of the robot spawn and gazebo environment -->
+<param name="robot_description" command="$(find xacro)/xacro $(find robocop_description)/urdf/robocop.xacro"/>
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robocop -x 4 -y -4 -z 0"/>
+<include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <arg name="world_name" value="$(arg world_file)"/>
+  <arg name="paused" value="false"/>
+  <arg name="use_sim_time" value="true"/>
+  <arg name="gui" value="true"/>
+  <arg name="headless" value="false"/>
+  <arg name="debug" value="false"/>
+  <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
+</include>
+
+</launch>

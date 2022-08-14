@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<robot name="robocop" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="greenColor" value="Gazebo/Green" />
+<xacro:property name="blackColor" value="Gazebo/Black" />
+<xacro:property name="grayColor" value="Gazebo/Grey" />
+<xacro:property name="silverColor" value="Gazebo/Silver" />
+
+<gazebo reference="base_link">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="soporteCamara_v2_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="depthCamera_v1_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="soporteElectronica_v7_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="LIDAR_v1_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="basePrincipal_v4_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="baseRuedas_v3__1__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="baseRuedas_v3_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="soportePantalla_v11_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="pantallaTouch_v1_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__9__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__8__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__7__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__6__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__5__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__4__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__3__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__2__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2__1__1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="rueda_v2_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+</robot>

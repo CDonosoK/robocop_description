@@ -1,0 +1,555 @@
+<?xml version="1.0" ?>
+<robot name="robocop" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find robocop_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find robocop_description)/urdf/robocop.trans" />
+
+<xacro:include filename="$(find robocop_description)/gazebo/robocop_materials.gazebo" />
+<xacro:include filename="$(find robocop_description)/gazebo/robocop_physics.gazebo" />
+<xacro:include filename="$(find robocop_description)/gazebo/robocop_plugins.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0018651922128957463 -0.0001339941880531507 0.08792532537696136" rpy="0 0 0"/>
+    <mass value="0.518865961499241"/>
+    <inertia ixx="0.002526" iyy="0.001389" izz="0.003913" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plstico_mate_verde"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="soporteCamara_v2_1">
+  <inertial>
+    <origin xyz="0.031000192212050377 0.03309723523847037 0.0028231628652582857" rpy="0 0 0"/>
+    <mass value="0.3066668323515448"/>
+    <inertia ixx="0.000213" iyy="0.000189" izz="0.0004" ixy="0.0" iyz="-4e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.029135 -0.089863 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soporteCamara_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plstico_mate_verde"/>
+  </visual>
+  <collision>
+    <origin xyz="0.029135 -0.089863 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soporteCamara_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="depthCamera_v1_1">
+  <inertial>
+    <origin xyz="1.3321708433653053e-05 -0.013660163121100521 0.013864662196538036" rpy="0 0 0"/>
+    <mass value="1.4328260381707594"/>
+    <inertia ixx="0.000283" iyy="0.003111" izz="0.00318" ixy="-0.0" iyz="-5e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.001865 -0.165189 -0.098881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/depthCamera_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="acero_satinado"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.001865 -0.165189 -0.098881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/depthCamera_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="soporteElectronica_v7_1">
+  <inertial>
+    <origin xyz="0.07505366903855869 0.05500321236476466 0.04613542479954183" rpy="0 0 0"/>
+    <mass value="1.7280541618979528"/>
+    <inertia ixx="0.002669" iyy="0.008802" izz="0.009606" ixy="0.0" iyz="-0.0" ixz="2.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.073835 0.055137 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soporteElectronica_v7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plstico_mate_verde"/>
+  </visual>
+  <collision>
+    <origin xyz="0.073835 0.055137 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soporteElectronica_v7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="LIDAR_v1_1">
+  <inertial>
+    <origin xyz="1.922129045869598e-07 -0.04935393654029111 0.033571184302419205" rpy="0 0 0"/>
+    <mass value="0.6325892936987738"/>
+    <inertia ixx="0.000422" iyy="0.000181" izz="0.000485" ixy="-0.0" iyz="-6.5e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000865 -0.041663 -0.155415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/LIDAR_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="acero_satinado"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000865 -0.041663 -0.155415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/LIDAR_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="basePrincipal_v4_1">
+  <inertial>
+    <origin xyz="0.06750019221290116 -0.08999961693977199 -0.0010003687853090693" rpy="0 0 0"/>
+    <mass value="0.44398234905881495"/>
+    <inertia ixx="0.001466" iyy="0.000868" izz="0.002334" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.065635 -0.089863 -0.085415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/basePrincipal_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.065635 -0.089863 -0.085415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/basePrincipal_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="baseRuedas_v3__1__1">
+  <inertial>
+    <origin xyz="-0.002915597767569167 -0.00016114326254506946 -0.03517882493390456" rpy="0 0 0"/>
+    <mass value="0.25465013251117524"/>
+    <inertia ixx="0.001194" iyy="0.000128" izz="0.001072" ixy="-0.0" iyz="4e-06" ixz="-9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.073135 0.000137 -0.083415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/baseRuedas_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.073135 0.000137 -0.083415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/baseRuedas_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="baseRuedas_v3_1">
+  <inertial>
+    <origin xyz="0.003915982193377993 0.0001619093830012282 -0.03517882493390446" rpy="0 0 0"/>
+    <mass value="0.25465013251117524"/>
+    <inertia ixx="0.001194" iyy="0.000128" izz="0.001072" ixy="-0.0" iyz="-4e-06" ixz="9e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.076865 0.000137 -0.083415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/baseRuedas_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.076865 0.000137 -0.083415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/baseRuedas_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="soportePantalla_v11_1">
+  <inertial>
+    <origin xyz="0.031024040064657452 -0.05481958862267361 0.0416925237926655" rpy="0 0 0"/>
+    <mass value="1.4723320792485302"/>
+    <inertia ixx="0.003175" iyy="0.003919" izz="0.002641" ixy="-1e-06" iyz="0.000192" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.029135 0.090137 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soportePantalla_v11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plstico_mate_verde"/>
+  </visual>
+  <collision>
+    <origin xyz="0.029135 0.090137 -0.090415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/soportePantalla_v11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pantallaTouch_v1_1">
+  <inertial>
+    <origin xyz="0.05700911899382228 -0.021369246136639014 -0.03552692822423634" rpy="0 0 0"/>
+    <mass value="0.4448049684188369"/>
+    <inertia ixx="0.000218" iyy="0.000719" izz="0.00059" ixy="0.0" iyz="-8.6e-05" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.055135 0.136312 -0.224749" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/pantallaTouch_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque2321138"/>
+  </visual>
+  <collision>
+    <origin xyz="0.055135 0.136312 -0.224749" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/pantallaTouch_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__9__1">
+  <inertial>
+    <origin xyz="-0.024841290924186132 -1.7478473850196519e-07 3.995464235781454e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076135 -0.106236 -0.034881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__9__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076135 -0.106236 -0.034881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__9__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__8__1">
+  <inertial>
+    <origin xyz="-0.02484129092418627 3.830602414781059e-07 -3.6878536288295627e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076135 -0.049863 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__8__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076135 -0.049863 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__8__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__7__1">
+  <inertial>
+    <origin xyz="-0.024841290924185494 3.830602412746554e-07 -3.6878536301479525e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076135 0.000137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__7__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076135 0.000137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__7__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__6__1">
+  <inertial>
+    <origin xyz="-0.02484129092418562 3.8306024076339984e-07 -3.6878536291765074e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076135 0.050137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__6__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076135 0.050137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__6__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__5__1">
+  <inertial>
+    <origin xyz="-0.024841290924184245 3.830602405829886e-07 -3.687853628794868e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.076135 0.100137 -0.033415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="0.076135 0.100137 -0.033415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__5__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__4__1">
+  <inertial>
+    <origin xyz="0.024841675349993597 -5.909477911181238e-08 3.9954653360124714e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.080865 0.106509 -0.034881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.080865 0.106509 -0.034881" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__4__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__3__1">
+  <inertial>
+    <origin xyz="0.024841675349993916 3.8306024099238334e-07 -3.6878525307496024e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.080865 0.050137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.080865 0.050137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__2__1">
+  <inertial>
+    <origin xyz="0.02484167534999379 3.8306024162783423e-07 -3.687852531616964e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.080865 0.000137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.080865 0.000137 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2__1__1">
+  <inertial>
+    <origin xyz="0.02484167534999379 3.830602419707674e-07 -3.6878525317210475e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.080865 -0.049863 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.080865 -0.049863 -0.020415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rueda_v2_1">
+  <inertial>
+    <origin xyz="0.024841675349992876 3.8306024210954526e-07 -3.687852527245461e-07" rpy="0 0 0"/>
+    <mass value="0.03535675163245145"/>
+    <inertia ixx="5e-06" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.080865 -0.099863 -0.033415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminio_pulido"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.080865 -0.099863 -0.033415" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://robocop_description/meshes/rueda_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigida1" type="fixed">
+  <origin xyz="-0.029135 0.089863 0.090415" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="soporteCamara_v2_1"/>
+</joint>
+
+<joint name="Rigida2" type="fixed">
+  <origin xyz="0.031 0.075326 0.008466" rpy="0 0 0"/>
+  <parent link="soporteCamara_v2_1"/>
+  <child link="depthCamera_v1_1"/>
+</joint>
+
+<joint name="Rigida3" type="fixed">
+  <origin xyz="-0.073835 -0.055137 0.090415" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="soporteElectronica_v7_1"/>
+</joint>
+
+<joint name="Rigida4" type="fixed">
+  <origin xyz="0.0747 0.0968 0.065" rpy="0 0 0"/>
+  <parent link="soporteElectronica_v7_1"/>
+  <child link="LIDAR_v1_1"/>
+</joint>
+
+<joint name="Rigida5" type="fixed">
+  <origin xyz="-0.065635 0.089863 0.085415" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="basePrincipal_v4_1"/>
+</joint>
+
+<joint name="Rigida6" type="fixed">
+  <origin xyz="-0.0075 -0.09 -0.002" rpy="0 0 0"/>
+  <parent link="basePrincipal_v4_1"/>
+  <child link="baseRuedas_v3__1__1"/>
+</joint>
+
+<joint name="Rigida7" type="fixed">
+  <origin xyz="0.1425 -0.09 -0.002" rpy="0 0 0"/>
+  <parent link="basePrincipal_v4_1"/>
+  <child link="baseRuedas_v3_1"/>
+</joint>
+
+<joint name="Rigida8" type="fixed">
+  <origin xyz="-0.029135 -0.090137 0.090415" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="soportePantalla_v11_1"/>
+</joint>
+
+<joint name="Rigida9" type="fixed">
+  <origin xyz="-0.026 -0.046175 0.134334" rpy="0 0 0"/>
+  <parent link="soportePantalla_v11_1"/>
+  <child link="pantallaTouch_v1_1"/>
+</joint>
+
+<joint name="ruedaIzquierda1" type="continuous">
+  <origin xyz="-0.003 0.106373 -0.048534" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3__1__1"/>
+  <child link="rueda_v2__9__1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="ruedaIzquierda2" type="continuous">
+  <origin xyz="-0.003 0.05 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3__1__1"/>
+  <child link="rueda_v2__8__1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="ruedaIzquierda3" type="continuous">
+  <origin xyz="-0.003 0.0 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3__1__1"/>
+  <child link="rueda_v2__7__1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="ruedaIzquierda4" type="continuous">
+  <origin xyz="-0.003 -0.05 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3__1__1"/>
+  <child link="rueda_v2__6__1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="ruedaIzquierda5" type="continuous">
+  <origin xyz="-0.003 -0.1 -0.05" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3__1__1"/>
+  <child link="rueda_v2__5__1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ruedaDerecha5" type="continuous">
+  <origin xyz="0.004 -0.106372 -0.048534" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3_1"/>
+  <child link="rueda_v2__4__1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ruedaDerecha4" type="continuous">
+  <origin xyz="0.004 -0.05 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3_1"/>
+  <child link="rueda_v2__3__1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ruedaDerecha3" type="continuous">
+  <origin xyz="0.004 0.0 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3_1"/>
+  <child link="rueda_v2__2__1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ruedaDerecha2" type="continuous">
+  <origin xyz="0.004 0.05 -0.063" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3_1"/>
+  <child link="rueda_v2__1__1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="ruedaDerecha1" type="continuous">
+  <origin xyz="0.004 0.1 -0.05" rpy="0 0 0"/>
+  <parent link="baseRuedas_v3_1"/>
+  <child link="rueda_v2_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+</robot>
