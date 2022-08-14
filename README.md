@@ -5,11 +5,11 @@ Made by Clemente Donoso, 📍 Chile 🇨🇱
 
 | RoboCop  | Lateral |
 | ------------- | ------------- |
-|![alt text](https://github.com/CDonosoK/robocop_description/blob/main/images/robocop.png) |	![alt text](https://github.com/CDonosoK/robocop_description/blob/main/images/robocop_lateral.png)|
+|![alt text](https://github.com/CDonosoK/robocop_description/tree/master/images/robocop.png) |	![alt text](https://github.com/CDonosoK/robocop_description/tree/master/images/robocop_lateral.png)|
 
 | Front |	Back|
 | ------------- | ------------- |
-|![alt text](https://github.com/CDonosoK/robocop_description/blob/main/images/robocop_front.png)| ![alt text](https://github.com/CDonosoK/robocop_description/blob/main/images/robocop_back.png)
+|![alt text](https://github.com/CDonosoK/robocop_description/tree/master/images/robocop_front.png)| ![alt text](https://github.com/CDonosoK/robocop_description/tree/master/images/robocop_back.png)
 
 ## About the project: ✏️
 This work seeks the construction and creation of a small autonomous mobile robot, capable of navigating, mapping and locating in controlled environments.
