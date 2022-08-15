@@ -17,4 +17,13 @@
   <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
 </include>
 
+<include file="$(find amcl)/examples/amcl_diff.launch"/>
+
+<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+  <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+  <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+  <rosparam file="$(find robocop_description)/codes/navigation_stack/local_costmap_params.yaml" command="load"/>
+  <rosparam file="$(find robocop_description)/codes/navigation_stack/global_costmap_params.yaml" command="load"/>
+  <rosparam file="$(find robocop_description)/codes/navigation_stack/base_local_planner_params.yaml" command="load"/>
+</node>
 </launch>
