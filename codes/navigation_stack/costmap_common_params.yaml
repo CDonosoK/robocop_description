@@ -1,0 +1,23 @@
+#Shape of the robot (like a cube)
+footprint: [
+  [0.15, 0.15],
+  [0.15, -0.15],
+  [-0.15, -0.15],
+  [-0.15, 0.15]
+]
+
+# The laser will be our source
+observation_sources: laser_scan_sensor
+
+# Information about the laser
+laser_scan_sensor:
+  # Name of the frame in which the laser is mounted
+  sensor_frame: Lidar_LD19_v1_1
+  # Data type of the laser scan
+  data_type: LaserScan
+  # Name of the topic where the laser scan is published
+  topic: scan
+  # We insert obstacles in the map
+  marking: true
+  # Asserting free space
+  clearing: true
