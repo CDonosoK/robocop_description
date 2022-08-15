@@ -66,9 +66,9 @@ if __name__ == '__main__':
     g_last_twist = Twist()
 
     g_vel_scales[0] = fetch_param('~angular_scale', 3.0)
-    g_vel_scales[1] = fetch_param('~linear_scale', 1.0)
+    g_vel_scales[1] = fetch_param('~linear_scale', 3.0)
     g_vel_ramps[0] = fetch_param('~angular_accel', 3.0)
-    g_vel_ramps[1] = fetch_param('~linear_accel', 1.0)
+    g_vel_ramps[1] = fetch_param('~linear_accel', 3.0)
 
     rate = rospy.Rate(20)
 
