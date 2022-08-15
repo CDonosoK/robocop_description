@@ -44,7 +44,7 @@
 </gazebo>
 
 <!-- LIDAR plugin -->
-<gazebo reference="LIDAR_v1_1">
+<gazebo reference="Lidar_LD19_v1_1">
   <sensor type="ray" name="lidar">
     <pose>0 0 0 0 0 0</pose>
     <visualize>true</visualize>
@@ -66,7 +66,7 @@
     </ray>
     <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
       <topicName>/scan</topicName>
-      <frameName>LIDAR_v1_1</frameName>
+      <frameName>Lidar_LD19_v1_1</frameName>
     </plugin>
   </sensor>
 </gazebo>

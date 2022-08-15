@@ -86,4 +86,16 @@
   <material>${greenColor}</material>
 </gazebo>
 
+<gazebo reference="Lidar_LD19_v1_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="Led_v1_1">
+  <material>${greenColor}</material>
+</gazebo>
+
+<gazebo reference="Led_v1__1__1">
+  <material>${greenColor}</material>
+</gazebo>
+
 </robot>
