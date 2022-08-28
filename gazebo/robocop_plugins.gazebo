@@ -19,10 +19,10 @@
     <rightJoint>ruedaDerecha2</rightJoint>
     <rightJoint>ruedaDerecha3</rightJoint>
     <rightJoint>ruedaDerecha4</rightJoint>
-    <wheelSeparation>0.13</wheelSeparation>
-    <wheelDiameter>0.035</wheelDiameter>
+    <wheelSeparation>0.22</wheelSeparation>
+    <wheelDiameter>0.08</wheelDiameter>
     <wheelAcceleration>5.0</wheelAcceleration>
-    <wheelTorque>50</wheelTorque>
+    <wheelTorque>10</wheelTorque>
 
     <!-- Topic -->
     <commandTopic>cmd_vel</commandTopic>
