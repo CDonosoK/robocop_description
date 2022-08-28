@@ -1,0 +1,8 @@
+<launch>
+    <group ns="j1">
+        <node name="ds4_joystick" pkg="joy" type="joy_node">
+                <param name="dev" value="/dev/input/js1" />
+        </node>
+    </group>
+
+</launch>
