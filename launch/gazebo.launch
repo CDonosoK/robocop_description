@@ -2,11 +2,11 @@
 <arg name="extra_gazebo_args" default="--verbose"/>
 
 <!-- Setup of the world file -->
-<arg name="world_file" default="$(find robocop_description)/worlds/stage_1/stage_1.world"/>
+<arg name="world_file" default="$(find robocop_description)/worlds/simple_environment/simple_environment.world"/>
 
 <!-- Configuration of the robot spawn and gazebo environment -->
 <param name="robot_description" command="$(find xacro)/xacro $(find robocop_description)/urdf/robocop.xacro"/>
-<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robocop -x 0 -y 0 -z 0"/>
+<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robocop -x 4 -y -4 -z 0"/>
 <include file="$(find gazebo_ros)/launch/empty_world.launch">
   <arg name="world_name" value="$(arg world_file)"/>
   <arg name="paused" value="false"/>
@@ -16,19 +16,5 @@
   <arg name="debug" value="false"/>
   <arg name="extra_gazebo_args" value="$(arg extra_gazebo_args)"/>
 </include>
-
-<!-- Configuration of the AMCL -->
-<include file="$(find robocop_description)/launch/amcl_robocop.launch" />
-
-<!-- Configuration Navigation Stack -->
-<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-  <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="global_costmap"/>
-  <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="local_costmap"/>
-  <rosparam file="$(find robocop_description)/codes/navigation_stack/local_costmap_params.yaml" command="load"/>
-  <rosparam file="$(find robocop_description)/codes/navigation_stack/global_costmap_params.yaml" command="load"/>
-  <rosparam file="$(find robocop_description)/codes/navigation_stack/base_local_planner_params.yaml" command="load"/>
-</node>
-
-
 
 </launch>
