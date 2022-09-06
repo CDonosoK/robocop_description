@@ -15,11 +15,11 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 
   <!-- Map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/worlds/simple_environment/map.yaml" />
-
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/worlds/real_world_00/real_world_00.yaml" />
   <!-- AMCL -->
-  <include file="$(find robocop_description)/launch/amcl_robocop.launch"/>
 
+  <include file="$(find robocop_description)/launch/amcl_robocop.launch"/>
+  
   <!-- move_base -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
