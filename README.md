@@ -20,6 +20,7 @@ As progress is made, new features will be added. First, nodes will be made that 
 I will upload the code and the documentation in the next update and in the next iteration. Fell free to contact me if you have any questions.
 
 ## Last Update: 📅
+- 2022 - September - 6: Add mapping node, teleoperation node and respective launch files.
 - 2022 - August - 14: First commit, with the basic structure of the project.
 - **...**
 
