@@ -54,5 +54,5 @@ def nodoPS4():
 
 if __name__ == "__main__":
     global arduino
-    arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
+    arduino = serial.Serial(port='/dev/ttyUSB1', baudrate=115200, timeout=.1)
     nodoPS4()
