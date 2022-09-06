@@ -4,5 +4,6 @@
                 <param name="dev" value="/dev/input/js1" />
         </node>
     </group>
-
+   <node pkg="robocop_description" name="ps4Controller" type="ps4Controller.py"> 
+   </node>
 </launch>
