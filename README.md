@@ -20,6 +20,7 @@ As progress is made, new features will be added. First, nodes will be made that 
 I will upload the code and the documentation in the next update and in the next iteration. Fell free to contact me if you have any questions.
 
 ## Last Update: 📅
+- 2022 - September - 6: Add mapping node, teleoperation node and respective launch files.
 - 2022 - August - 14: First commit, with the basic structure of the project.
 - **...**
 
@@ -81,9 +82,6 @@ If you want to try the simulation, you can run the following command:
 
 ### Worlds
 - The worlds are in the folder `worlds`, in this folder you can find the worlds that will create the environment for the robot, if you create your own world, save it in this folder.
-
-### Maps
-- The maps are in the folder `maps`, in this folder you can find the maps that the robot create from the world and navigate with them, if you create your own map, save it in a specific folder inside this one.
 
 ### URDF
 - The URDF files are in the folder `urdf`, in this folder you can find the URDF files that are used to create the robot.

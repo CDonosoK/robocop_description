@@ -1,0 +1,13 @@
+<launch>
+<!-- LIDAR - LAUNCH -->
+<include file="$(find robocop_description)/launch/ld19.launch"/>
+
+<!-- RVIZ - LAUNCH -->
+<include file="$(find robocop_description)/launch/display.launch"/>
+
+<!-- CONTROLLER - LAUNCH -->
+<include file="$(find robocop_description)/launch/ps4.launch"/>
+
+<!-- AMCL - LAUNCH -->
+
+</launch>

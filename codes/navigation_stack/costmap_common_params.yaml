@@ -1,23 +1,11 @@
-#Shape of the robot (like a cube)
-footprint: [
-  [0.15, 0.15],
-  [0.15, -0.15],
-  [-0.15, -0.15],
-  [-0.15, 0.15]
-]
+obstacle_range: 3.0
+raytrace_range: 3.5
 
-# The laser will be our source
-observation_sources: laser_scan_sensor
+footprint: [[-0.15, -0.15], [-0.15, 0.15], [0.15, 0.15], [0.15, -0.15]]
 
-# Information about the laser
-laser_scan_sensor:
-  # Name of the frame in which the laser is mounted
-  sensor_frame: Lidar_LD19_v1_1
-  # Data type of the laser scan
-  data_type: LaserScan
-  # Name of the topic where the laser scan is published
-  topic: scan
-  # We insert obstacles in the map
-  marking: true
-  # Asserting free space
-  clearing: true
+inflation_radius: 1.0
+cost_scaling_factor: 3.0
+
+map_type: costmap
+observation_sources: scan
+scan: {sensor_frame: Lidar_LD19_v1_1, data_type: LaserScan, topic: scan, marking: true, clearing: true}

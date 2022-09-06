@@ -1,13 +1,33 @@
 <launch>
+  <!-- Arguments -->
   <arg name="model" default="$(find robocop_description)/urdf/robocop.xacro"/>
-  <arg name="gui" default="true"/>
-  <arg name="rvizconfig" default="$(find robocop_description)/launch/urdf.rviz"/>
+  <arg name="move_forward_only" default="false"/>
+  <arg name="multi_robot_name" default=""/>
+
+  <!-- RoboCop - Rviz -->
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
-  <param name="use_gui" value="$(arg gui)"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find robocop_description)/launch/robocop.rviz"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node>
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/worlds/simple_environment/map.yaml" />
+  <!-- Map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/worlds/real_world_00/real_world_00.yaml" />
+  <!-- AMCL -->
 
+  <include file="$(find robocop_description)/launch/amcl_robocop.launch"/>
+  
+  <!-- move_base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/move_base_params.yaml" command="load" />
+    <rosparam file="$(find robocop_description)/codes/navigation_stack/dwa_local_planner_params.yaml" command="load" />
+  </node>
 </launch>

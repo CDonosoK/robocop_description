@@ -1,3 +1,35 @@
 TrajectoryPlannerROS:
-  # Our robot it's a differential drive
+# http://wiki.ros.org/base_local_planner
+# Robot Configuration Parameters
+  max_vel_x: 10.0
+  min_vel_x: -10.0
+
+  max_vel_y: 10.0
+  min_vel_y: -10.0
+
+  max_vel_trans: 5.0
+  min_vel_trans: -5.0
+
+  max_vel_theta:  5.0
+  min_vel_theta: -5.0
+
+  min_in_place_vel_theta: 5.0
+
+  acc_lim_x: 5.0
+  acc_lim_y: 5.0
+  acc_lim_theta: 9.0
+
+  escape_vel: -5.0
+
+# Goal Tolerance Parameters
+  xy_goal_tolerance: 0.30
+  yaw_goal_tolerance: 0.3
+
+# Differential-drive robot configuration
   holonomic_robot: false
+
+# Forward Simulation Parameters
+  sim_time: 0.2
+  vx_samples: 18
+  vtheta_samples: 20
+  sim_granularity: 0.10
