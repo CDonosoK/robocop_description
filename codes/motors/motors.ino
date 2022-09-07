@@ -16,6 +16,10 @@ void setup() {
   pinMode(DB, OUTPUT);
 }
 
+float map_float(float x, float in_min, float in_max, float out_min, float out_max) {
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 void loop() {
   if (Serial.available()){
     // Obtain data from python
@@ -56,16 +60,16 @@ void loop() {
 void motorControl(float joy_izqX, float joy_izqY, float joy_derX, float joy_derY){
   // Stay
   if (abs(joy_izqY) < 0.1 and abs(joy_derX) < 0.1){
-    digitalWrite(PWMA, LOW);
-    digitalWrite(DA, LOW);
-    digitalWrite(PWMB, LOW);
-    digitalWrite(DB, LOW);
+    analogWrite(PWMA, LOW);
+    analogWrite(DA, LOW);
+    analogWrite(PWMB, LOW);
+    analogWrite(DB, LOW);
     Serial.println("Stay");
   }
   
   // Forward
   else if (joy_izqY > 0.1){
-    vel_forward = map(joy_izqY, 0.1, 1.00, 0, 255);
+    vel_forward = map_float(joy_izqY, 0.1, 1.00, 0, 255);
     Serial.println("Forward");
     analogWrite(PWMA, vel_forward);
     analogWrite(DA, LOW);
@@ -75,7 +79,7 @@ void motorControl(float joy_izqX, float joy_izqY, float joy_derX, float joy_derY
 
   // Backward
   else if (joy_izqY < -0.1){
-    vel_backward = map(abs(joy_izqY), 0.1, 1.00, 0, 255);
+    vel_backward = map_float(abs(joy_izqY), 0.1, 1.00, 0, 255);
     Serial.println("Backward");
     Serial.println(vel_backward);
     analogWrite(PWMA, vel_backward);
@@ -86,7 +90,7 @@ void motorControl(float joy_izqX, float joy_izqY, float joy_derX, float joy_derY
 
   // Turn left on point
   else if (abs(joy_izqY) <= 0.1 and joy_derX >= 0.1){
-    vel_turn = map(joy_derX, 0, 1.00, 0, 255);
+    vel_turn = map_float(joy_derX, 0, 1.00, 0, 255);
     Serial.println("Turn left on point");
     analogWrite(PWMA, vel_turn);
     analogWrite(DA, vel_turn);
@@ -96,7 +100,7 @@ void motorControl(float joy_izqX, float joy_izqY, float joy_derX, float joy_derY
 
   // Turn right on point
   else if (abs(joy_izqY) <= 0.1 and joy_derX <= -0.1){
-    vel_turn = map(abs(joy_derX), 0.1, 1.00, 0, 255);
+    vel_turn = map_float(abs(joy_derX), 0.1, 1.00, 0, 255);
     Serial.println("Turn right on point");
     analogWrite(PWMA, vel_turn);
     analogWrite(DA, LOW);
