@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 
 from sensor_msgs.msg import Joy
+import sys
 import rospy, serial
+sys.path.append("/home/cdonosok/Escritorio/ROS/src/robocop_description/codes/encoders")
+from readData import readEncoders
+
 '''
 ang izq x
 ang izq y
@@ -29,7 +33,6 @@ Medio
 ---
 
 sudo ds4drv para conectar el control
-roslaunch robocop_description ds4_node.launch
 '''
 
 def chatter_callback(mensaje):
@@ -39,6 +42,8 @@ def chatter_callback(mensaje):
 
     data = str(joystick_izquierdo) + "|" + str(joystick_derecho) + "|" + str(botones) + "\n"
     arduino.write(data.encode("utf-8"))
+
+    readEncoders(arduino)
 
 
 def nodoPS4():
@@ -52,7 +57,11 @@ def nodoPS4():
     rospy.Subscriber(nombreTopico, tipoTopico, chatter_callback)
     rospy.spin()
 
+
+
+
 if __name__ == "__main__":
     global arduino
-    arduino = serial.Serial(port='/dev/ttyUSB1', baudrate=115200, timeout=.1)
+    arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
     nodoPS4()
+    
