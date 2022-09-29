@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 
 from sensor_msgs.msg import Joy
-import sys
-import rospy, serial
+import sys, rospy
 sys.path.append("/home/cdonosok/Escritorio/ROS/src/robocop_description/codes/encoders")
-from readData import readEncoders
+from geometry_msgs.msg import Twist
 
 '''
 ang izq x
@@ -40,10 +39,11 @@ def chatter_callback(mensaje):
     joystick_derecho = (round(mensaje.axes[2], 3), round(mensaje.axes[5], 3)) #Eje X, Eje Y
     botones = (mensaje.buttons[1], mensaje.buttons[2], mensaje.buttons[3], mensaje.buttons[0]) #Equis, Circulo, Triangulo, Cuadrado
 
-    data = str(joystick_izquierdo) + "|" + str(joystick_derecho) + "|" + str(botones) + "\n"
-    arduino.write(data.encode("utf-8"))
-
-    readEncoders(arduino)
+    publisherMotores = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+    twist = Twist()
+    twist.linear.x = joystick_izquierdo[1]
+    twist.angular.z = joystick_derecho[0]
+    publisherMotores.publish(twist)
 
 
 def nodoPS4():
@@ -62,6 +62,5 @@ def nodoPS4():
 
 if __name__ == "__main__":
     global arduino
-    arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
     nodoPS4()
     
