@@ -19,8 +19,5 @@
 <material name="plstico_brillante_negro">
   <color rgba="0.09803921568627451 0.09803921568627451 0.09803921568627451 1.0"/>
 </material>
-<material name="aluminio_anodizado_rugoso_gris">
-  <color rgba="0.5372549019607843 0.5372549019607843 0.5372549019607843 1.0"/>
-</material>
 
 </robot>

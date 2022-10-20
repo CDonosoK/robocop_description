@@ -16,6 +16,8 @@ while(cap.isOpened()):
     # Capture frame-by-frame
     ret, frame = cap.read()
     if ret == True:
+        # Change the display size
+        frame = cv2.resize(frame, (320, 640))
         # Display the resulting frame
         cv2.imshow('Frame',frame)
 

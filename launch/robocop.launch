@@ -1,13 +1,17 @@
 <launch>
-<!-- LIDAR - LAUNCH -->
-<include file="$(find robocop_description)/launch/ld19.launch"/>
+    <!-- LIDAR - LAUNCH -->
+    <include file="$(find robocop_description)/launch/ld19.launch"/>
 
-<!-- RVIZ - LAUNCH -->
-<include file="$(find robocop_description)/launch/display.launch"/>
+    <!-- RVIZ - LAUNCH -->
+    <include file="$(find robocop_description)/launch/display.launch"/>
 
-<!-- CONTROLLER - LAUNCH -->
-<include file="$(find robocop_description)/launch/ps4.launch"/>
+    <!-- ROS_SERIAL - LAUNCH -->
+    <include file="$(find robocop_description)/launch/ros_serial.launch"/>
 
-<!-- AMCL - LAUNCH -->
+    <!-- CONTROLLER - LAUNCH -->
+    <!--<include file="$(find robocop_description)/launch/ps4.launch"/>-->
+
+    <!-- CAMERA - LAUNCH -->
+    <!--<include file="$(find robocop_description)/launch/camera.launch"/>-->
 
 </launch>

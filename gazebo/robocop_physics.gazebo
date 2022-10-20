@@ -132,16 +132,4 @@
   <selfCollide>true</selfCollide>
 </gazebo>
 
-<gazebo reference="Led_v1_1">
-  <mu1>${wheelFriction}</mu1>
-  <mu2>${wheelFriction}</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
-<gazebo reference="Led_v1__1__1">
-  <mu1>${wheelFriction}</mu1>
-  <mu2>${wheelFriction}</mu2>
-  <selfCollide>true</selfCollide>
-</gazebo>
-
 </robot>

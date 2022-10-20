@@ -8,7 +8,9 @@
 <xacro:property name="silverColor" value="Gazebo/Silver" />
 <xacro:property name="yellowColor" value="Gazebo/YellowGlow" />
 
-
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
 <gazebo reference="base_link">
   <material>${greenColor}</material>
 </gazebo>
@@ -18,7 +20,7 @@
 </gazebo>
 
 <gazebo reference="depthCamera_v1_1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="soporteElectronica_v7_1">
@@ -26,15 +28,15 @@
 </gazebo>
 
 <gazebo reference="basePrincipal_v4_1">
-  <material>${silverColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="baseRuedas_v3__1__1">
-  <material>${silverColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="baseRuedas_v3_1">
-  <material>${silverColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="soportePantalla_v11_1">
@@ -42,59 +44,51 @@
 </gazebo>
 
 <gazebo reference="pantallaTouch_v1_1">
-  <material>${darkgrayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__9__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__8__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__7__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__6__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__5__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__4__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__3__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__2__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2__1__1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="rueda_v2_1">
-  <material>${grayColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 <gazebo reference="Lidar_LD19_v1_1">
-  <material>${blackColor}</material>
-</gazebo>
-
-<gazebo reference="Led_v1_1">
-  <material>${yellowColor}</material>
-</gazebo>
-
-<gazebo reference="Led_v1__1__1">
-  <material>${yellowColor}</material>
+  <material>${greenColor}</material>
 </gazebo>
 
 </robot>

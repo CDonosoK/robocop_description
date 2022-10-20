@@ -95,7 +95,8 @@ When using ROS, Gazebo and Rviz for the simulations it will not be necessary to 
 - [Depth camera](https://es.aliexpress.com/item/1005002763661050.html?spm=a2g0s.9042311.0.0.41c263c0t63anU)
 - [Metal Chasis](https://www.amazon.com/dp/B09131Z41C?psc=1&ref=ppx_yo2ov_dt_b_product_details)
 - [Screen](https://es.aliexpress.com/item/32894346094.html?spm=a2g0o.order_list.0.0.6018194dlblAcN&gatewayAdapt=glo2esp)
-- [Raspberry Pico](https://es.aliexpress.com/item/1005004271337949.html?spm=a2g0o.productlist.0.0.19df7250awZbxG&algo_pvid=82875a74-614a-490e-8fbf-19c74911b32d&algo_exp_id=82875a74-614a-490e-8fbf-19c74911b32d-5&pdp_ext_f=%7B%22sku_id%22%3A%2212000028584736395%22%7D&pdp_npi=2%40dis%21CLP%21%212421.0%21%21%211478.0%21%21%402100bddd16540745059073292e3a20%2112000028584736395%21sea)
+- [Arduino Mega](https://www.amazon.com/ARDUINO-MEGA-2560-REV3-A000067/dp/B0046AMGW0/ref=sr_1_3?adgrpid=82339136060&gclid=Cj0KCQjwnbmaBhD-ARIsAGTPcfV0dpdKYqUK8qqjVElSfU8AtlI78G4z7sEVCeENNTkj1fU3fjynJ5gaAoCfEALw_wcB&hvadid=585362632029&hvdev=c&hvlocphy=1003316&hvnetw=g&hvqmt=b&hvrand=6885093969957038291&hvtargid=kwd-22985581315&hydadcr=22307_13333510&keywords=arduino+mega+2560&qid=1666140383&qu=eyJxc2MiOiIzLjQwIiwicXNhIjoiMi43MSIsInFzcCI6IjIuNDYifQ%3D%3D&sr=8-3)
+- [Shield](https://www.amazon.com/Aideepen-Control-Shield-Stepper-Expansion/dp/B09Y1WB2VN/ref=sr_1_3?crid=JVUF622OJ8EB&keywords=shield+puente+H&qid=1666140420&sprefix=shield+puente+h%2Caps%2C234&sr=8-3)
 - [PS4 Controller](https://es.aliexpress.com/item/1005003691702636.html?spm=a2g0o.order_list.0.0.5f41194dRBJFl3&gatewayAdapt=glo2esp)
 
 ## Contribute:
