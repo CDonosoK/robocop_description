@@ -11,11 +11,11 @@ DWAPlannerROS:
   max_vel_y: 0.1
   min_vel_y: -0.1
 
-  max_trans_vel: 0.65
-  min_trans_vel: 0.1
+  max_vel_trans: 0.65
+  min_vel_trans: 0.1
 
-  max_rot_vel: 1.0
-  min_rot_vel: 0.4
+  max_vel_theta: 1.0
+  min_vel_theta: 0.4
 
   sim_time: 1.7
   sim_granularity: 0.025
@@ -41,5 +41,5 @@ DWAPlannerROS:
   xy_goal_tolerance: 0.2
   yaw_goal_tolerance: 0.17
 
-  rot_stopped_vel: 0.01
+  theta_stopped_vel: 0.01
   trans_stopped_vel: 0.01
