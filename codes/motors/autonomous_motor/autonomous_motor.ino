@@ -22,6 +22,9 @@ tf::TransformBroadcaster broadcaster;
 // Se instancian las variables
 float linearVelocity;
 float angularVelocity;
+float turnRightVel;
+float turnLeftVel;
+
 int forwardRight, forwardLeft, turnRight, turnLeft;
 AF_DCMotor Motor1(3);
 AF_DCMotor Motor2(4);
@@ -43,6 +46,11 @@ double x = 0;
 double y = 0;
 double theta = 0;
 
+double rightVelocity = 0.0;
+double leftVelocity = 0.0;
+
+int long currentTime = 0;
+int long previousTime = 0;
 
 float map_float(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -52,8 +60,8 @@ void callback(const geometry_msgs::Twist& vel){
   linearVelocity = vel.linear.x;
   angularVelocity = vel.angular.z;
 
-  int right_velocity = 100;
-  int left_velocity = 100;
+  int right_velocity = 150;
+  int left_velocity = 150;
   if (linearVelocity>0.1){
     Motor1.run(FORWARD);
     Motor2.run(FORWARD);
@@ -82,6 +90,7 @@ void callback(const geometry_msgs::Twist& vel){
     Motor1.setSpeed(0);
     Motor2.setSpeed(0);
   }
+
 }
 
 // Creación de los nodos de ROS
@@ -119,8 +128,8 @@ void setup(){
   broadcaster.init(nHandler);
 
   // Se ajustan los motores
-  Motor1.setSpeed(100);
-  Motor2.setSpeed(100);
+  Motor1.setSpeed(0);
+  Motor2.setSpeed(0);
   Motor1.run(RELEASE);
   Motor2.run(RELEASE);
 
@@ -135,6 +144,10 @@ void setup(){
   // Se ajusta la velocidad
   int left_velocity = 100;
   int right_velocity = 100;
+
+  // Se setea el time
+  currentTime = millis();
+  previousTime = currentTime;
 
   Serial.begin(115200);
 }
@@ -182,7 +195,6 @@ int rightTick[] = {
   9521
 };
 
-
 int leftTick[] = {
   1140,
   1134,
@@ -196,26 +208,83 @@ int leftTick[] = {
   1111  
 };
 
-double mean(bool type){
+int rightTurn[] = {
+  3574,
+  3653,  
+  3307,
+  3057,
+  3074,
+  3303,
+  3233,
+  3315,
+  3148,
+  3112
+};
+
+int leftTurn[] = {
+  452,
+  444,
+  384,
+  378,
+  382,
+  351,
+  374,
+  344,
+  379,
+  367  
+};
+
+double mean(int type){
   double sum = 0;
   double len = 0.0;
-  if (type){
+  if (type == 0){
     len = sizeof(rightTick)/sizeof(rightTick[0]);
     for (int i = 0; i < len; i++){
       sum += rightTick[i];
     }
   }
-  else{
+  else if (type == 1){
     len = sizeof(leftTick)/sizeof(leftTick[0]);
     for (int i = 0; i < len; i++){
       sum += leftTick[i];
+    }
+  }
+  else if (type == 2){
+    len = sizeof(rightTurn)/sizeof(rightTurn[0]);
+    for (int i = 0; i < len; i++){
+      sum += rightTurn[i];
+    }
+  }
+  else if (type == 3){
+    len = sizeof(leftTurn)/sizeof(leftTurn[0]);
+    for (int i = 0; i < len; i++){
+      sum += leftTurn[i];
     }
   }
   return sum / len;
 }
 
 void loop(){ 
+  double meanRight = mean(0);
+  double meanLeft = mean(1);
+  double meanTurnRight = mean(2);
+  double meanTurnLeft = mean(3);
+  currentTime = millis();
+  if (currentTime - previousTime >= 10){
+    previousTime = currentTime;
+    // convert: meters/second --> ticks/second
+    rightVelocity = linearVelocity * meanRight;
+    leftVelocity = linearVelocity * meanLeft;
+    turnRightVel = angularVelocity * (meanTurnRight / PI);
+    turnRightVel = angularVelocity * (meanTurnLeft / PI);
+
+    
+  }
+  
   update_counter();
+
+
+  
   double dx = 0.2;
   double dtheta = 0.18;
   x += cos(theta)*dx*0.1;
@@ -225,9 +294,6 @@ void loop(){
     theta =-PI;
   }
 
-  double meanRight = mean(true);
-  double leftRight = mean(false);
-
   tOdom.header.frame_id = "/odom";
   tOdom.child_frame_id = "/base_link";
   tOdom.transform.translation.x = 0.0;
@@ -236,4 +302,5 @@ void loop(){
   tOdom.header.stamp = nHandler.now();
   broadcaster.sendTransform(tOdom); 
   nHandler.spinOnce();
+
 }
