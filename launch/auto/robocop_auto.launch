@@ -1,0 +1,11 @@
+<launch>
+    <!-- LIDAR - LAUNCH -->
+    <include file="$(find robocop_description)/launch/ld19.launch"/>
+
+    <!-- RVIZ - LAUNCH -->
+    <include file="$(find robocop_description)/launch/auto/display_auto.launch"/>
+
+    <!-- ROS_SERIAL - LAUNCH -->
+    <include file="$(find robocop_description)/launch/ros_serial.launch"/>
+
+</launch>

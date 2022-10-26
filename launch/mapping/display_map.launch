@@ -1,0 +1,15 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="model" default="$(find robocop_description)/urdf/robocop.xacro"/>
+  <arg name="multi_robot_name" default=""/>
+
+  <!-- RoboCop - Rviz -->
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find robocop_description)/launch/robocop.rviz"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="$(arg multi_robot_name)"/>
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+</launch>
