@@ -42,10 +42,6 @@ static long counter_left_old = 0;
 volatile bool fired_right, fired_left;
 volatile bool up_right, up_left;
 
-double x = 0;
-double y = 0;
-double theta = 0;
-
 double rightVelocity = 0.0;
 double leftVelocity = 0.0;
 
@@ -97,9 +93,9 @@ void callback(const geometry_msgs::Twist& vel){
 ros::Subscriber<geometry_msgs::Twist> nodo_vel("cmd_vel", callback);
 
 // Variables para la odometría
-double odom_x = 1.0;
+double odom_x = 0.0;
 double odom_y = 0.0;
-double odom_thet = 1.57;
+double odom_theta = 0.0;
 
 void read_right(){
   if (digitalRead(encoder_rightA)){
@@ -264,41 +260,37 @@ double mean(int type){
   return sum / len;
 }
 
+double meanRight = mean(0);
+double meanLeft = mean(1);
+double meanTurnRight = mean(2);
+double meanTurnLeft = mean(3);
+
 void loop(){ 
-  double meanRight = mean(0);
-  double meanLeft = mean(1);
-  double meanTurnRight = mean(2);
-  double meanTurnLeft = mean(3);
   currentTime = millis();
   if (currentTime - previousTime >= 10){
     previousTime = currentTime;
-    // convert: meters/second --> ticks/second
-    rightVelocity = linearVelocity * meanRight;
-    leftVelocity = linearVelocity * meanLeft;
-    turnRightVel = angularVelocity * (meanTurnRight / PI);
-    turnRightVel = angularVelocity * (meanTurnLeft / PI);
 
+    double mean_x = (counter_right/meanRight + counter_left/meanLeft)/2;
+    double mean_theta = (counter_right/meanRight - counter_left/meanLeft)/360;
+
+    odom_x += mean_x*cos(mean_theta);
+    odom_y = 0;
+    if (odom_theta > PI){
+      odom_theta -= 2*PI;
+    }
+    else{
+      odom_theta += 2*PI;
+    }
     
   }
   
   update_counter();
 
-
-  
-  double dx = 0.2;
-  double dtheta = 0.18;
-  x += cos(theta)*dx*0.1;
-  y += sin(theta)*dx*0.1;
-  theta += dtheta*0.1;
-  if (theta >PI){
-    theta =-PI;
-  }
-
-  tOdom.header.frame_id = "/odom";
-  tOdom.child_frame_id = "/base_link";
-  tOdom.transform.translation.x = 0.0;
-  tOdom.transform.translation.y = 0.0;
-  tOdom.transform.rotation = tf::createQuaternionFromYaw(0.0);
+  tOdom.header.frame_id = "odom";
+  tOdom.child_frame_id = "base_link";
+  tOdom.transform.translation.x = odom_x/100;
+  tOdom.transform.translation.y = odom_y;
+  tOdom.transform.rotation = tf::createQuaternionFromYaw(odom_theta);
   tOdom.header.stamp = nHandler.now();
   broadcaster.sendTransform(tOdom); 
   nHandler.spinOnce();
