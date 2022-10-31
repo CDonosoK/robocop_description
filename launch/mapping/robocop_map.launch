@@ -9,6 +9,6 @@
     <include file="$(find robocop_description)/launch/mapping/ps4.launch"/>
 
     <!-- MAPPING - LAUNCH -->
-    <include file="$(find robocop_description)/launch/hector_mapping.launch"/>
+    <include file="$(find robocop_description)/launch/mapping/hector_mapping.launch"/>
 
 </launch>
