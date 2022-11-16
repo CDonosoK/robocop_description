@@ -4,10 +4,11 @@
 
 // Se importan los mensajes
 #include <geometry_msgs/Twist.h>
+#include <std_msgs/String.h>
 #include <nav_msgs/Odometry.h>
 #include <tf/tf.h>
 #include <tf/transform_broadcaster.h>
-#include <std_msgs/UInt16.h>
+#include <std_msgs/Int64MultiArray.h>
 #include <ros/time.h>
 
 #define PI 3.1415926535897932384626433832795
@@ -15,9 +16,7 @@
 // Variables globales de ROS
 ros::NodeHandle nHandler;
 nav_msgs::Odometry odom_msgs;
-geometry_msgs::TransformStamped tOdom;
-geometry_msgs::TransformStamped tTF;
-tf::TransformBroadcaster broadcaster;
+std_msgs::String position_msgs;
 
 // Se instancian las variables
 float linearVelocity;
@@ -48,6 +47,14 @@ double leftVelocity = 0.0;
 int long currentTime = 0;
 int long previousTime = 0;
 
+// Variables para la odometría
+double odom_x = 0.0;
+double odom_y = 0.0;
+double odom_theta = 0.0;
+
+String string_position = "";
+
+
 float map_float(float x, float in_min, float in_max, float out_min, float out_max) {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -56,8 +63,8 @@ void callback(const geometry_msgs::Twist& vel){
   linearVelocity = vel.linear.x;
   angularVelocity = vel.angular.z;
 
-  int right_velocity = 150;
-  int left_velocity = 150;
+  int right_velocity = 100;
+  int left_velocity = 100;
   if (linearVelocity>0.1){
     Motor1.run(FORWARD);
     Motor2.run(FORWARD);
@@ -91,11 +98,7 @@ void callback(const geometry_msgs::Twist& vel){
 
 // Creación de los nodos de ROS
 ros::Subscriber<geometry_msgs::Twist> nodo_vel("cmd_vel", callback);
-
-// Variables para la odometría
-double odom_x = 0.0;
-double odom_y = 0.0;
-double odom_theta = 0.0;
+ros::Publisher posePublisher("pose_topic", &position_msgs);
 
 void read_right(){
   if (digitalRead(encoder_rightA)){
@@ -121,7 +124,7 @@ void setup(){
   nHandler.getHardware()->setBaud(115200);
   nHandler.initNode();
   nHandler.subscribe(nodo_vel);
-  broadcaster.init(nHandler);
+  nHandler.advertise(posePublisher);
 
   // Se ajustan los motores
   Motor1.setSpeed(0);
@@ -138,8 +141,8 @@ void setup(){
   attachInterrupt(digitalPinToInterrupt(encoder_leftA), read_left, CHANGE);
 
   // Se ajusta la velocidad
-  int left_velocity = 100;
-  int right_velocity = 100;
+  int left_velocity = 120;
+  int right_velocity = 130;
 
   // Se setea el time
   currentTime = millis();
@@ -178,56 +181,22 @@ void update_counter(){
   }  
 }
 
+// Right ticks per meter
 int rightTick[] = {
-  11154,
-  10868,
-  9931,
-  9835,
-  9581,
-  9944,
-  9000,
-  10265,  
-  9985,
-  9521
+  7550
 };
 
+// Left ticks per meter
 int leftTick[] = {
-  1140,
-  1134,
-  1146,
-  1132,
-  1142,
-  1123,
-  1138,
-  1130,
-  1121,
-  1111  
+  1000
 };
 
+// Right ticks per half turn
 int rightTurn[] = {
-  3574,
-  3653,  
-  3307,
-  3057,
-  3074,
-  3303,
-  3233,
-  3315,
-  3148,
-  3112
 };
 
+// Left ticks per half turn
 int leftTurn[] = {
-  452,
-  444,
-  384,
-  378,
-  382,
-  351,
-  374,
-  344,
-  379,
-  367  
 };
 
 double mean(int type){
@@ -265,34 +234,45 @@ double meanLeft = mean(1);
 double meanTurnRight = mean(2);
 double meanTurnLeft = mean(3);
 
+double previousR_tick = 0.0;
+double previousL_tick = 0.0;
+
 void loop(){ 
   currentTime = millis();
-  if (currentTime - previousTime >= 10){
-    previousTime = currentTime;
-
-    double mean_x = (counter_right/meanRight + counter_left/meanLeft)/2;
-    double mean_theta = (counter_right/meanRight - counter_left/meanLeft)/360;
-
-    odom_x += mean_x*cos(mean_theta);
-    odom_y = 0;
-    if (odom_theta > PI){
-      odom_theta -= 2*PI;
-    }
-    else{
-      odom_theta += 2*PI;
-    }
-    
-  }
-  
   update_counter();
 
-  tOdom.header.frame_id = "odom";
-  tOdom.child_frame_id = "base_link";
-  tOdom.transform.translation.x = odom_x/100;
-  tOdom.transform.translation.y = odom_y;
-  tOdom.transform.rotation = tf::createQuaternionFromYaw(odom_theta);
-  tOdom.header.stamp = nHandler.now();
-  broadcaster.sendTransform(tOdom); 
+  if (currentTime - previousTime >= 100){
+
+    double deltaR_ticks = counter_right - previousR_tick;
+    double r_distance = deltaR_ticks / meanRight;
+
+    double deltaL_ticks = counter_left - previousL_tick;
+    double l_distance = deltaL_ticks / meanLeft;
+
+    double delta_distance = (r_distance + l_distance) / 2.0;
+
+    odom_theta += (r_distance - l_distance) / 0.215;
+    
+    if (odom_theta > 2.0*PI) odom_theta -= 2.0*PI;
+    if (odom_theta < 0.0) odom_theta += 2.0*PI;
+
+    odom_x += delta_distance * cos(odom_theta);
+    odom_y += delta_distance * sin(odom_theta);
+
+    previousR_tick = counter_right;
+    previousL_tick = counter_left;
+    previousTime = currentTime;
+  }
+
+  string_position = "";
+  string_position += String(odom_x);
+  string_position += "|";
+  string_position += String(odom_y);
+  string_position += "|";
+  string_position += String(odom_theta);
+  position_msgs.data = string_position.c_str();
+  posePublisher.publish(&position_msgs);
+
   nHandler.spinOnce();
 
 }

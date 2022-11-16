@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find octomap_server)/launch/octomap_mapping.launch">
+        <arg name="resolution_value" value="0.05" />
+        <arg name="frame_value" value="camera_link" />
+        <arg name="range_value" value="200.0" />
+        <arg name="topic_value" value="/camera/depth/points" />
+    </include>
+</launch>

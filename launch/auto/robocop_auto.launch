@@ -9,6 +9,6 @@
     <include file="$(find robocop_description)/launch/ros_serial.launch"/>
 
     <!-- ODOMETRY - LAUNCH -->
-    <include file="$(find witmotion_ros)/launch/witmotion.launch"/>
+    <node pkg="robocop_description" name="odometry" type="odometry.py" output = "screen"/> 
 
 </launch>

@@ -15,6 +15,7 @@
 
   <!-- Map server -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find robocop_description)/worlds/real_world_00/real_world_00.yaml" />
+  <node name="map_to_base_link" pkg="tf" type="static_transform_publisher"  args="0.0 0.0 0.0 0.0 0.0 0.0 map base_link 500"/>
   <!-- AMCL -->
 
   <include file="$(find robocop_description)/launch/auto/amcl_robocop.launch"/>

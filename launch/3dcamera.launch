@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find astra_camera)/launch/astra_pro.launch"/>
+
+    <!--
+        <node name="camera_to_baser" pkg="tf" type="static_transform_publisher"  args="0.0 0.0 0.0 1.57 0.0 0.0 base_laser camera_link 500"/>
+    -->
+</launch>
