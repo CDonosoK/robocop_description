@@ -1,4 +1,5 @@
 <launch>
+    <include file="$(find robocop_description)/launch/ld19.launch"/>
     <node pkg="hector_mapping" type="hector_mapping" name="hector_mapping" output="screen">
             <param name="base_frame" value="base_link" />
             <param name="odom_frame" value="base_link" />

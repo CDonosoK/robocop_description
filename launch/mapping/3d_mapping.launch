@@ -1,8 +1,24 @@
 <launch>
-    <include file="$(find octomap_server)/launch/octomap_mapping.launch">
-        <arg name="resolution_value" value="0.05" />
-        <arg name="frame_value" value="camera_link" />
-        <arg name="range_value" value="200.0" />
-        <arg name="topic_value" value="/camera/depth/points" />
-    </include>
+    <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+		<param name="resolution" value="0.035" />
+        <param name="base_frame_id" value="base_link"/>
+		<param name="frame_id" type="string" value="map" />
+		<remap from="cloud_in" to="/camera/depth/points" />
+        
+
+        <param name="point_cloud_min_z" value="-5"/>
+        <param name="point_cloud_max_z" value="5"/>
+
+        <param name="occupancy_min_z" value="-5"/>
+        <param name="occupancy_max_z" value="5"/>
+
+        <param name="ground_filter/distance" value="0.1"/>
+        <param name="ground_filter/max_angle" value="0.5"/>
+
+        <param name="sensor_model/max_range" value="3.0" />
+        <param name="sensor_model/hit" value="0.90"/>
+        <param name="sensor_model/miss" value="0.20"/>
+        <param name="sensor_model/min" value="0.10"/>
+        <param name="sensor_model/max" value="0.90"/>
+	</node>
 </launch>

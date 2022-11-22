@@ -8,7 +8,4 @@
     <!-- ROS_SERIAL - LAUNCH -->
     <include file="$(find robocop_description)/launch/ros_serial.launch"/>
 
-    <!-- ODOMETRY - LAUNCH -->
-    <node pkg="robocop_description" name="odometry" type="odometry.py" output = "screen"/> 
-
 </launch>
