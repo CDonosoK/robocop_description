@@ -1,0 +1,16 @@
+<launch>
+    <!-- MAPPING LAUNCH -->
+    <include file="$(find robocop_description)/launch/mapping/hector_mapping.launch"/>
+
+    <!-- ODOMETRY LAUNCH -->
+    <include file="$(find robocop_description)/launch/odom.launch"/>
+
+    <!-- RVIZ FILE -->
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find robocop_description)/robocop_rviz.rviz"/>
+
+    <!-- CAMERA LAUNCH -->
+    <include file="$(find robocop_description)/launch/3dcamera.launch"/>
+    <include file="$(find robocop_description)/launch/mapping/3d_mapping.launch"/>
+
+
+</launch>
