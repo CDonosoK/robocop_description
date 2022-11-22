@@ -1,7 +1,21 @@
 <launch>
-    <include file="$(find astra_camera)/launch/astra_pro.launch"/>
 
-    <!--
-        <node name="camera_to_baser" pkg="tf" type="static_transform_publisher"  args="0.0 0.0 0.0 1.57 0.0 0.0 base_laser camera_link 500"/>
-    -->
+    <!-- unique camera name-->
+    <arg name="camera_name" default="camera" />
+    <!-- Hardware depth registration -->
+    <arg name="depth_registration" default="false" />
+    <arg name="3d_sensor" default="astrapro"/>
+    <arg name="serial_number" default=""/>
+    <group ns="$(arg camera_name)">
+        <node name="camera" pkg="astra_camera" type="astra_camera_node" output="screen">
+        <rosparam command="load" file="$(find robocop_description)/codes/camera/camera_params.yaml" />
+        <param name="camera_name" value="$(arg camera_name)" />
+        <param name="serial_number" value="$(arg serial_number)" />
+        <param name="use_uvc_camera" value="true" />
+        <param name="uvc_product_id" value="0x0501" />
+        <remap from="/$(arg camera_name)/depth/color/points" to="/$(arg camera_name)/depth_registered/points"/>
+        </node>
+    </group>
+    <node name="camera_to_baser" pkg="tf" type="static_transform_publisher"  args="0.0 0.0 0.0 0.0 0.0 0.0 base_link camera_link 10"/>
+    
 </launch>
